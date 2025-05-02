@@ -15,4 +15,6 @@ extern struct VEHICLE_LIST *vHead;
 
 Vehicle *newVehicle(void);
 Vehicle *findVehicle(int id);
+void showAll(void);
 void deleteVehicle(Vehicle *);
+void deleteAll(void);

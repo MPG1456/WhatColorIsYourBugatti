@@ -34,8 +34,8 @@ void deleteVehicle(Vehicle *myV)
     if(vHead->myV == myV)
     {
         vTemp = vTemp->vNext;
-        delete[] vHead->myV;
-        delete[] vHead;
+        delete vHead->myV;
+        delete vHead;
         vHead = vTemp;
         return;
     }
@@ -47,6 +47,37 @@ void deleteVehicle(Vehicle *myV)
     }
     vTemp2 = vTemp->vNext;
     vTemp->vNext = vTemp2->vNext;
-    delete[] vTemp2->myV;
-    delete[] vTemp2;
+    delete vTemp2->myV;
+    delete vTemp2;
+}
+
+void showAll(void)
+{
+    struct VEHICLE_LIST *vTemp = vHead;
+    if(vHead == nullptr)
+    {
+        cout << "No Vehicles To Display!" << endl;
+        return;
+    }
+
+    while(vTemp)
+    {
+        vTemp->myV->showFeatures();
+        vTemp = vTemp->vNext;
+    }
+}
+
+void deleteAll(void)
+{
+    struct VEHICLE_LIST *vTemp = vHead;
+    if(vHead == nullptr)
+        return;
+
+    while(vTemp)
+    {
+        vTemp = vTemp->vNext;
+        delete vHead->myV;
+        delete vHead;
+        vHead = vTemp;
+    }
 }
