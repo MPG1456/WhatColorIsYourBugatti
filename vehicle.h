@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "list.h"
 
 using namespace std;
 
@@ -43,7 +44,6 @@ class Rentable
 
 public:
     Rentable(int price);
-    bool rent(void);
     int getPrice(int day);
     bool getRentalStatus(void) const;
     void setRentalStatus(bool status);
@@ -69,3 +69,10 @@ public:
     Bike(int maxSpeed, string company, int model, string color, int ppd, int YOP);
     void drive(void) const override;
 };
+
+void sell(void);
+void rent(void);
+void addVehicle(void);
+void addCar(Vehicle *);
+void addMotor(Vehicle *);
+void addBike(Vehicle *);
