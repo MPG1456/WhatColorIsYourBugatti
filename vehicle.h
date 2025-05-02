@@ -27,9 +27,22 @@ public:
     string getColor(void) const;
     int getYOP(void) const;
     virtual void drive(void) const = 0;
-    virtual void showFeatures(void) const = 0;
+    void showFeatures(void) const;
     bool getAvailable(void) const;
     void setAvailable(bool status);
     int getId(void) const;
 };
 
+class Car : public Vehicle
+{
+public:
+    Car(int maxSpeed, string company, int model, string color, int YOP);
+    void drive(void) const override;
+};
+
+class Motor : public Vehicle
+{
+public:
+    Motor(int maxSpeed, string company, int model, string color, int YOP);
+    void drive(void) const override;
+};

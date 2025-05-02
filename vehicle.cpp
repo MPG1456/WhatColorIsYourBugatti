@@ -58,3 +58,36 @@ int Vehicle::getId(void) const
     return id;
 }
 
+void Vehicle::showFeatures(void) const
+{
+    cout << "========================" << endl;
+    cout << "ID: " << id << endl;
+    cout << "Max Speed: " << maxSpeed << endl;
+    cout << "Company: " << company << endl;
+    cout << "Model: " << model << endl;
+    cout << "Color: " << color << endl;
+    cout << "Year Of Production: " << yearOfProduction << endl;
+    cout << "========================" << endl;
+}
+
+Car::Car(int maxSpeed, string company, int model, string color, int YOP) : Vehicle(maxSpeed, false, true, company, model, color, YOP)
+{}
+
+void Car::drive(void) const
+{
+    int maxS = getMaxSpeed();
+    for(int i = 0; i < maxS; ++i)
+        cout << i << " ";
+    cout << endl;
+}
+
+Motor::Motor(int maxSpeed, string company, int model, string color, int YOP) : Vehicle(maxSpeed, true, true, company, model, color, YOP)
+{}
+
+void Motor::drive(void) const
+{
+    int maxS = getMaxSpeed() / 2;
+    for(int i = 0; i < maxS; ++i)
+        cout << i << " ";
+    cout << endl;
+}
