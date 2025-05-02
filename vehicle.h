@@ -16,5 +16,6 @@ public:
     bool getRent(void) const;
     bool getSell(void) const;
     virtual void drive(void) const = 0;
+    virtual void showFeatures(void) const = 0;
 };
 
