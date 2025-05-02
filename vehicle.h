@@ -15,7 +15,7 @@ class Vehicle
     string color;
     int yearOfProduction;
     bool availble;
-    
+
 public:
     static int counter;
     Vehicle(int maxSpeed, bool isRent, bool isSell, string company, int model, string color, int YOP);
@@ -46,3 +46,10 @@ public:
     Motor(int maxSpeed, string company, int model, string color, int YOP);
     void drive(void) const override;
 };
+
+class Bike : public Vehicle
+{
+public:
+    Bike(int maxSpeed, string company, int model, string color, int YOP);
+    void drive(void) const override;
+}

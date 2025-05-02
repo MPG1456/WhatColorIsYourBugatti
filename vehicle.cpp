@@ -91,3 +91,14 @@ void Motor::drive(void) const
         cout << i << " ";
     cout << endl;
 }
+
+Bike::Bike(int maxSpeed, string company, int model, string color, int YOP) : Vehicle(maxSpeed, true, false, company, model, color, YOP)
+{}
+
+void Motor::drive(void) const
+{
+    int maxS = getMaxSpeed();
+    for(int i = 0; i < maxS; ++i)
+        cout << "pedaling ";
+    cout << endl;
+}
