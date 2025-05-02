@@ -5,6 +5,8 @@
 
 using namespace std;
 
+class Vehicle;
+
 struct VEHICLE_LIST
 {
     Vehicle *myV;

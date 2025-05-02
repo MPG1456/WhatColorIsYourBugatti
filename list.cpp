@@ -6,7 +6,7 @@ Vehicle *newVehicle(void)
 {
     struct VEHICLE_LIST *vTemp = vHead;
     if(vHead == nullptr)
-        vHead = new struct VEHICLE_LIST;
+        vTemp = vHead = new struct VEHICLE_LIST;
     else
     {
         while(vTemp->vNext != nullptr)
@@ -15,6 +15,7 @@ Vehicle *newVehicle(void)
         vTemp->vNext = new struct VEHICLE_LIST;
         return vTemp->vNext->myV;
     }
+    return vTemp->myV;
 }
 
 Vehicle *findVehicle(int id)
