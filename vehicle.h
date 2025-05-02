@@ -8,8 +8,6 @@ class Vehicle
 {
     int id;
     int maxSpeed;
-    bool isRent;
-    bool isSell;
     string company;
     int model;
     string color;
@@ -18,38 +16,56 @@ class Vehicle
 
 public:
     static int counter;
-    Vehicle(int maxSpeed, bool isRent, bool isSell, string company, int model, string color, int YOP);
+    Vehicle(int maxSpeed, string company, int model, string color, int YOP);
     int getMaxSpeed(void) const;
-    bool getRent(void) const;
-    bool getSell(void) const;
     string getCompanyName(void) const;
     int getModel(void) const;
     string getColor(void) const;
     int getYOP(void) const;
     virtual void drive(void) const = 0;
     void showFeatures(void) const;
-    bool getAvailable(void) const;
-    void setAvailable(bool status);
     int getId(void) const;
 };
 
-class Car : public Vehicle
+class Sellable
+{
+    int price;
+
+public:
+    Sellable(int price);
+    int getPrice(void) const;
+};
+
+class Rentable
+{
+    int pricePerDay;
+    bool isRented;
+
+public:
+    Rentable(int price);
+    bool rent(void);
+    int getPrice(int day);
+    bool getRentalStatus(void) const;
+    void setRentalStatus(bool status);
+};
+
+class Car : public Vehicle, public Sellable
 {
 public:
-    Car(int maxSpeed, string company, int model, string color, int YOP);
+    Car(int maxSpeed, string company, int model, string color, int price, int YOP);
     void drive(void) const override;
 };
 
-class Motor : public Vehicle
+class Motor : public Vehicle, public Sellable, public Rentable
 {
 public:
-    Motor(int maxSpeed, string company, int model, string color, int YOP);
+    Motor(int maxSpeed, string company, int model, string color, int ppd, int price, int YOP);
     void drive(void) const override;
 };
 
-class Bike : public Vehicle
+class Bike : public Vehicle, public Rentable
 {
 public:
-    Bike(int maxSpeed, string company, int model, string color, int YOP);
+    Bike(int maxSpeed, string company, int model, string color, int ppd, int YOP);
     void drive(void) const override;
-}
+};
