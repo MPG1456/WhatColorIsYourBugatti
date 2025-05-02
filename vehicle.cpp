@@ -53,3 +53,8 @@ void Vehicle::setAvailable(bool status)
     availble = status;
 }
 
+int Vehicle::getId(void) const
+{
+    return id;
+}
+

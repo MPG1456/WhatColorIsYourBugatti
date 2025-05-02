@@ -30,5 +30,6 @@ public:
     virtual void showFeatures(void) const = 0;
     bool getAvailable(void) const;
     void setAvailable(bool status);
+    int getId(void) const;
 };
 
